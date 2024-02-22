@@ -3,6 +3,7 @@
 ## Installation et lancement
 - Clonez le repository, rendez vous dans le dossier
 - Assurez vous d'avoir une version de Node.js `>= v18.17.0`
+- Lancez `mkdir -p __generated__`
 - Lancez `yarn install` (ou npm, npx, ou autre)
 - Lancez `yarn relay`
 - Lancez le projet avec `yarn dev`
