@@ -43,5 +43,5 @@ aux premiers abords, mais tu devrais trouver ton bonheur dans les champs `pokemo
 Sinon tu te retrouveras avec l'erreur suivante : `Invariant Violation: RelayResponseNormalizer: Expected id on field to be a string`
 
 N'oublie pas de relancer `yarn relay` à chaque changement dans les requêtes graphql
-- Lorsque tu auras terminé ton test, envoie le sur le repository. Si tu as des questions, des remarques, n'hésite pas à me contacter - julien.aguilar@cap-collectif.com
+- Lorsque tu auras terminé ton test, envoie le sur ton repository et fais le nous savoir. Si tu as des questions, des remarques, n'hésite pas à me contacter - julien.aguilar@cap-collectif.com
 - Prends le temps qu'il te faut, et bon courage !
