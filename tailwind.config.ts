@@ -35,6 +35,8 @@ const config: Config = {
         dragon: '#7038F8',
         dark: '#705848',
         fairy: '#EE99AC',
+        'dark-bg': '#192227',
+        'light-bg': '#E5ECFD',
       },
     },
   },
