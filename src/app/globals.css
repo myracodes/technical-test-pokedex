@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Pokemon Hollow';
+  src:url(../assets/Pokemon_Hollow.ttf)
+}
+
+@font-face {
+  font-family: 'Pokemon Solid';
+  src:url(../assets/Pokemon_Solid.ttf)
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
