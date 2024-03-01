@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import { graphql, useLazyLoadQuery } from 'react-relay'
-import { PokemonQuery } from '../../__generated__/PokemonQuery.graphql'
+import { graphql, useLazyLoadQuery } from 'react-relay';
+import { PokemonQuery } from '../../__generated__/PokemonQuery.graphql';
+import Link from 'next/link';
 
 const GRAPHQL = graphql`
   query PokemonQuery($pokemonId: Int!) {
@@ -14,21 +15,18 @@ const GRAPHQL = graphql`
       }
     }
   }
-`
+`;
 
-// TODO : Display the informations you want about the Pokemon, add a bit of styling
-export const Pokemon = ({ pokemonId }: { pokemonId: number }) => {
-  const data = useLazyLoadQuery<PokemonQuery>(GRAPHQL, { pokemonId })
-
-  // To help
-  console.log(data)
+export const PokemonDetails = ({ pokemonId }: { pokemonId: number }) => {
+  const data = useLazyLoadQuery<PokemonQuery>(GRAPHQL, { pokemonId });
 
   return (
     <div>
       Legendary : {data.pokemon?.specy?.is_legendary ? 'Yes' : 'No'}
       <img src={data.pokemon?.sprites[0].sprites.front_default} alt={data.pokemon?.name} />
+      <Link href={'/'}>Back</Link>
     </div>
-  )
-}
+  );
+};
 
-export default Pokemon
+export default PokemonDetails;
