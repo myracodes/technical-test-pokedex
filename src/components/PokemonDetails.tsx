@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { graphql, useLazyLoadQuery } from 'react-relay';
-import { PokemonQuery } from '../../__generated__/PokemonQuery.graphql';
+import { PokemonDetailsQuery } from '../../__generated__/PokemonDetailsQuery.graphql';
 import Link from 'next/link';
 
 const GRAPHQL = graphql`
-  query PokemonQuery($pokemonId: Int!) {
+  query PokemonDetailsQuery($pokemonId: Int!) {
     pokemon: pokemon_v2_pokemon_by_pk(id: $pokemonId) {
       name
       sprites: pokemon_v2_pokemonsprites {
@@ -18,7 +18,7 @@ const GRAPHQL = graphql`
 `;
 
 export const PokemonDetails = ({ pokemonId }: { pokemonId: number }) => {
-  const data = useLazyLoadQuery<PokemonQuery>(GRAPHQL, { pokemonId });
+  const data = useLazyLoadQuery<PokemonDetailsQuery>(GRAPHQL, { pokemonId });
 
   return (
     <div>
