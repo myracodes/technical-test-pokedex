@@ -3,6 +3,7 @@ import { graphql, useLazyLoadQuery } from 'react-relay';
 import { PokemonsQuery } from '../../__generated__/PokemonsQuery.graphql';
 import Card from './Card';
 import { IPokemon } from '@/interfaces/Pokemon.interface';
+import { useState } from 'react';
 
 const GRAPHQL = graphql`
   query PokemonsQuery {
@@ -28,12 +29,29 @@ const GRAPHQL = graphql`
 export const Pokemons = () => {
   const data = useLazyLoadQuery<PokemonsQuery>(GRAPHQL, {});
 
+  const [pokemonsData, setPokemonsData] = useState(data.pokemons);
+
+  const [filteredPokemon, setFilteredPokemon] = useState(data.pokemons);
+
+  const searchPokemons = (value: string) => {
+    setFilteredPokemon(pokemonsData.filter((pokemon: IPokemon) => pokemon.name.includes(value)));
+  };
+
   return (
     <div className="p-4">
-      <h1 className="mb-5 text-[2rem]">Pokedex</h1>
-      {/*@TODO: Add searchbar */}
+      <div className="flex flex-row justify-between items-center">
+        <h1 className="mb-5 text-[2rem]">Pokedex</h1>
+        <input
+          type="text"
+          placeholder="search pokemons..."
+          className="mx-4 px-2 py-1 rounded-md grow h-fit text-dark-bg bg-light-bg"
+          onChange={e => {
+            searchPokemons(e.target.value);
+          }}
+        />
+      </div>
       <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 m-4">
-        {data.pokemons.map((item: IPokemon) => {
+        {filteredPokemon.map((item: IPokemon) => {
           return <Card pokemon={item} key={item.pokemonId}></Card>;
         })}
       </div>
