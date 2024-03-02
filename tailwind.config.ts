@@ -13,7 +13,8 @@ const config: Config = {
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       fontFamily: {
-        pokemon: ['"Pokemon Hollow"'],
+        pokemon: ['"Pokemon Solid"'],
+        'pokemon-hollow': ['"Pokemon Hollow"'],
         roboto: ['Roboto'],
       },
       colors: {
@@ -37,6 +38,16 @@ const config: Config = {
         fairy: '#EE99AC',
         'dark-bg': '#192227',
         'light-bg': '#E5ECFD',
+        'brand-blue': '#2A75BB',
+        'brand-blue-dark': '#3C5AA6',
+        'brand-yellow': '#FFCB05',
+        'brand-yellow-dark': '#C7A008',
+      },
+      screens: {
+        sm: '576px', // Small screens
+        md: '768px', // Medium screens
+        lg: '1200px', // Large screens
+        xl: '1600px', // Extra-large screens
       },
     },
   },
