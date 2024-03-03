@@ -6,7 +6,7 @@ export const EvolutionChain = ({ evolutionChain }: { evolutionChain: any }): JSX
   return !evolutionChain ? null : (
     <div className="flex flex-col gap-8 w-full">
       <h2 className="mx-auto">Evolution chain - First Gen:</h2>
-      <span className="flex flex-row gap-12 mx-auto">
+      <span className="flex flex-row items-baseline gap-12 mx-auto">
         {evolutionChain.map((evolution: any) => (
           <Link
             key={evolution.pokemon_v2_pokemons[0].evolution_id}
