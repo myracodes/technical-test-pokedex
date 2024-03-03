@@ -8,6 +8,7 @@ export const Card = ({ pokemon }: any) => {
 
   return (
     <Link className="group " href={`/pokemon?id=${pokemon.pokemonId}`}>
+      {/* @TODO: page NOT FOUND */}
       <div
         className={` flex flex-col justify-between gap-1 group-hover:cursor-pointer bg-${firstType}-500 rounded-xl p-4 h-full scale-75 group-hover:scale-100 transition-all`}
       >
