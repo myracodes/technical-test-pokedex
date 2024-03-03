@@ -26,6 +26,7 @@ export const Card = ({ pokemon }: any) => {
           />
         )}
         <span className="flex flex-row gap-1 self-end">
+          {/* @TODO: typage */}
           {pokemon.type.map((type: any, index: number) => (
             <PokemonType key={index} pokemonType={type.pokemon_v2_type.name}></PokemonType>
           ))}

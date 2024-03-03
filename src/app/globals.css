@@ -38,14 +38,16 @@ body {
     rgb(var(--background-start-rgb));
     font-weight: 400;
     font-size: 16px;
-  }
+}
   
-  h1, h2, h3 {
+h1, h2, h3 {
   font-family: 'Pokemon Solid';
+  letter-spacing: 0.3rem;
 }
 
-  h4, h5, h6 {
+h4, h5, h6 {
   font-family: 'Pokemon Hollow';
+  letter-spacing: 0.3rem;
 
 }
 
