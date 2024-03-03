@@ -4,12 +4,12 @@
 
 @font-face {
   font-family: 'Pokemon Hollow';
-  src:url(../assets/Pokemon_Hollow.ttf)
+  src:url(../assets/fonts/Pokemon_Hollow.ttf)
 }
 
 @font-face {
   font-family: 'Pokemon Solid';
-  src:url(../assets/Pokemon_Solid.ttf)
+  src:url(../assets/fonts/Pokemon_Solid.ttf)
 }
 
 :root {
@@ -38,15 +38,16 @@ body {
     rgb(var(--background-start-rgb));
     font-weight: 400;
     font-size: 16px;
-  }
+}
   
-  h1, h2, h3 {
+h1, h2, h3 {
   font-family: 'Pokemon Solid';
+  letter-spacing: 0.3rem;
 }
 
-  h4, h5, h6 {
+h4, h5, h6 {
   font-family: 'Pokemon Hollow';
-
+  letter-spacing: 0.3rem;
 }
 
 @layer utilities {

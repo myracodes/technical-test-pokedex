@@ -44,7 +44,7 @@ export const Pokemons = () => {
         <input
           type="text"
           placeholder="search pokemons..."
-          className="mx-4 px-2 py-1 rounded-md border border-1 border-dark-bg grow h-fit text-dark-bg bg-light-bg"
+          className="mx-4 px-2 py-1 rounded-md border border-1 border-neutral-800 grow h-fit text-neutral-800 bg-neutral-200"
           onChange={e => {
             searchPokemons(e.target.value);
           }}

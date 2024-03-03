@@ -26,7 +26,7 @@ export const PokemonType = ({ pokemonType }: { pokemonType: string }): JSX.Eleme
   if (currentType) {
     return (
       // @todo: add a tooltip with the type on it (in letters, for clarity :))
-      <span className="bg-light-bg dark:bg-dark-bg rounded-full w-fit p-1">
+      <span className="bg-neutral-200 dark:bg-neutral-800 rounded-full w-fit p-1">
         <Image src={currentType.src} alt={pokemonType + ' type'} width={20} height={20}></Image>
       </span>
     );
