@@ -3,8 +3,8 @@ import Link from 'next/link';
 import PokemonType from './PokemonTypes';
 
 export const Card = ({ pokemon }: any) => {
+  // Some pokemons have several types. We use the first one to style the Card background with its color.
   const firstType = pokemon?.type[0].pokemon_v2_type?.name;
-  console.log(pokemon.type);
 
   return (
     <Link className="group " href={`/pokemon?id=${pokemon.pokemonId}`}>
