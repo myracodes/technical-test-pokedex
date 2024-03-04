@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import StatPill from './atoms/StatPill';
 
 import weightIcon from '../assets/icons/weight.svg';
 import heightIcon from '../assets/icons/height.svg';
@@ -13,38 +13,14 @@ interface IStatsProps {
 export const Stats = ({ weight, height, captureRate }: IStatsProps) => {
   return (
     <div className="flex flex-row gap-8 mx-auto">
-      <span className="flex flex-row gap-2">
-        <Image
-          className=" rounded-full font-neutral-800 dark:bg-neutral-200"
-          src={weightIcon.src}
-          alt="weight"
-          width={25}
-          height={25}
-        />
-        <p className="">Weight: {weight}kg</p>
-      </span>
-
-      <span className="flex flex-row gap-2">
-        <Image
-          className=" rounded-full font-neutral-800 dark:bg-neutral-200"
-          src={heightIcon.src}
-          alt="height"
-          width={25}
-          height={25}
-        />
-        <p className="">Height: {height}m</p>
-      </span>
-
-      <span className="flex flex-row gap-2">
-        <Image
-          className=" rounded-full font-neutral-800 dark:bg-neutral-200"
-          src={pokeballIcon.src}
-          alt="pokeball"
-          width={25}
-          height={25}
-        />
-        <p className="">Capture rate: {captureRate || 'unknown'}</p>
-      </span>
+      <StatPill iconSrc={weightIcon.src} altText="weight" label="Weight" value={weight + 'kg'} />
+      <StatPill iconSrc={heightIcon.src} altText="height" label="Height" value={height + 'm'} />
+      <StatPill
+        iconSrc={pokeballIcon.src}
+        altText="pokeball"
+        label="Capture rate"
+        value={captureRate?.toString() || 'unknown'}
+      />
     </div>
   );
 };
