@@ -7,6 +7,7 @@ import EvolutionChain from './EvolutionChain';
 import Stats from './Stats';
 import LegendaryBadge from './atoms/LegendaryBadge';
 import Sprites from './atoms/Sprites';
+import Navigation from './atoms/Navigation';
 
 const GRAPHQL = graphql`
   query PokemonDetailsQuery($pokemonId: Int!) {
@@ -63,8 +64,6 @@ export const PokemonDetails = ({ pokemonId }: { pokemonId: number }) => {
   const sprites = data.pokemon_v2_pokemonsprites_by_pk?.sprites;
   const evolutionChain = data.pokemon_v2_evolutionchain[0].pokemon_v2_pokemonspecies;
   const isLegendary = info?.pokemon_v2_pokemonspecy?.is_legendary;
-  const nextPokemonId = pokemonId === 151 ? 1 : pokemonId + 1;
-  const previousPokemonId = pokemonId === 1 ? 151 : pokemonId - 1;
 
   return (
     <div key={pokemonId} className="flex flex-col gap-8 items-start justify-center max-w-[600px] mx-auto my-8">
@@ -114,14 +113,7 @@ export const PokemonDetails = ({ pokemonId }: { pokemonId: number }) => {
         {sprites?.back_shiny && <Sprites sprites={sprites?.back_shiny} alt={info?.name + 'back shiny'} />}
       </span>
 
-      <div className="flex flex-row items-center justify-between w-full text-pokemon text-6xl h-0">
-        <Link className="-ml-12" href={`/pokemon?id=${previousPokemonId}`}>
-          {'<'}
-        </Link>
-        <Link className="-mr-12" href={`/pokemon?id=${nextPokemonId}`}>
-          {'>'}
-        </Link>
-      </div>
+      <Navigation pokemonId={pokemonId} />
 
       {evolutionChain && <EvolutionChain evolutionChain={evolutionChain}></EvolutionChain>}
 
