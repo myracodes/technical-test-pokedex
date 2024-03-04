@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
-import PokemonType from './PokemonTypes';
+import PokemonType from './PokemonType';
 
 export const Card = ({ pokemon }: any) => {
   // Some pokemons have several types. We use the first one to style the Card background with its color.
