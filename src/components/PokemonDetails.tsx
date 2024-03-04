@@ -56,7 +56,6 @@ const GRAPHQL = graphql`
   }
 `;
 
-// @TODO: ajouter flèches pour passer au pokemon précédent / suivant
 export const PokemonDetails = ({ pokemonId }: { pokemonId: number }) => {
   const data = useLazyLoadQuery<PokemonDetailsQuery>(GRAPHQL, { pokemonId });
 
@@ -64,9 +63,11 @@ export const PokemonDetails = ({ pokemonId }: { pokemonId: number }) => {
   const sprites = data.pokemon_v2_pokemonsprites_by_pk?.sprites;
   const evolutionChain = data.pokemon_v2_evolutionchain[0].pokemon_v2_pokemonspecies;
   const isLegendary = info?.pokemon_v2_pokemonspecy?.is_legendary;
+  const nextPokemonId = pokemonId === 151 ? 1 : pokemonId + 1;
+  const previousPokemonId = pokemonId === 1 ? 151 : pokemonId - 1;
 
   return (
-    <div key={pokemonId} className="flex flex-col gap-12 items-start justify-center max-w-[600px] mx-auto my-8">
+    <div key={pokemonId} className="flex flex-col gap-8 items-start justify-center max-w-[600px] mx-auto my-8">
       <div className="flex flex-col gap-2 w-full">
         <div className="flex flex-row items-center justify-center gap-8">
           <Link
@@ -112,6 +113,15 @@ export const PokemonDetails = ({ pokemonId }: { pokemonId: number }) => {
         {sprites?.back_default && <Sprites sprites={sprites?.back_default} alt={info?.name + 'back default'} />}
         {sprites?.back_shiny && <Sprites sprites={sprites?.back_shiny} alt={info?.name + 'back shiny'} />}
       </span>
+
+      <div className="flex flex-row items-center justify-between w-full text-pokemon text-6xl h-0">
+        <Link className="-ml-12" href={`/pokemon?id=${previousPokemonId}`}>
+          {'<'}
+        </Link>
+        <Link className="-mr-12" href={`/pokemon?id=${nextPokemonId}`}>
+          {'>'}
+        </Link>
+      </div>
 
       {evolutionChain && <EvolutionChain evolutionChain={evolutionChain}></EvolutionChain>}
 
