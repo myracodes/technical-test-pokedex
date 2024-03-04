@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
-import PokemonType from './PokemonTypes';
+import PokemonType from './atoms/PokemonType';
 
 export const Card = ({ pokemon }: any) => {
+  // Some pokemons have several types. We use the first one to style the Card background with its color.
   const firstType = pokemon?.type[0].pokemon_v2_type?.name;
-  console.log(pokemon.type);
 
   return (
     <Link className="group " href={`/pokemon?id=${pokemon.pokemonId}`}>
@@ -14,7 +14,7 @@ export const Card = ({ pokemon }: any) => {
       >
         <span className="relative flex flex-row items-center justify-start gap-1 text-lg w-full">
           <p>{pokemon.pokemon_v2_pokemonspecy?.is_legendary && '★ '}</p>
-          <p className="capitalize font-pokemon">{pokemon.name}</p>
+          <p className="capitalize font-pokemon tracking-wider">{pokemon.name}</p>
           <p className="absolute -top-3 -right-3 font-pokemon rounded-full w-fit min-w-[2.5rem] h-[2.5rem] px-2 py-1 bg-neutral-200 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">
             #{pokemon.pokemonId}
           </p>

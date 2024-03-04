@@ -25,7 +25,6 @@ const GRAPHQL = graphql`
   }
 `;
 
-// TODO : Add a bit of styling
 export const Pokemons = () => {
   const data = useLazyLoadQuery<PokemonsQuery>(GRAPHQL, {});
 
@@ -44,7 +43,7 @@ export const Pokemons = () => {
         <input
           type="text"
           placeholder="search pokemons..."
-          className="mx-4 px-2 py-1 rounded-md border border-1 border-neutral-800 grow h-fit text-neutral-800 bg-neutral-200"
+          className="mx-4 px-4 py-1 rounded-full border border-1 border-neutral-800 grow h-fit text-neutral-800 bg-neutral-200"
           onChange={e => {
             searchPokemons(e.target.value);
           }}

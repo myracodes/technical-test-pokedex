@@ -2,10 +2,12 @@
 import { graphql, useLazyLoadQuery } from 'react-relay';
 import { PokemonDetailsQuery } from '../../__generated__/PokemonDetailsQuery.graphql';
 import Link from 'next/link';
-import PokemonType from './PokemonTypes';
+import PokemonType from './atoms/PokemonType';
 import EvolutionChain from './EvolutionChain';
-import Image from 'next/image';
 import Stats from './Stats';
+import LegendaryBadge from './atoms/LegendaryBadge';
+import Sprites from './atoms/Sprites';
+import Navigation from './atoms/Navigation';
 
 const GRAPHQL = graphql`
   query PokemonDetailsQuery($pokemonId: Int!) {
@@ -55,7 +57,6 @@ const GRAPHQL = graphql`
   }
 `;
 
-// @TODO: ajouter flèches pour passer au pokemon précédent / suivant
 export const PokemonDetails = ({ pokemonId }: { pokemonId: number }) => {
   const data = useLazyLoadQuery<PokemonDetailsQuery>(GRAPHQL, { pokemonId });
 
@@ -70,7 +71,7 @@ export const PokemonDetails = ({ pokemonId }: { pokemonId: number }) => {
         <div className="flex flex-row items-center justify-center gap-8">
           <Link
             href={'/'}
-            className="text-lg uppercase font-bold border-2 px-4 py-1 mt-3 rounded-full border-dark-500 dark:border-neutral-200 hover:bg-neutral-200 dark:hover:bg-dark-300"
+            className="text-lg uppercase font-bold border-2 px-4 py-1 mt-3 rounded-md border-dark-500 dark:border-neutral-200 hover:bg-neutral-200 dark:hover:bg-dark-300"
           >
             ← Back
           </Link>
@@ -96,12 +97,7 @@ export const PokemonDetails = ({ pokemonId }: { pokemonId: number }) => {
           ))}
         </span>
 
-        {isLegendary && (
-          <span className="flex flex-row items-center gap-2 border-2 px-4 py-1 rounded-full justify-self-end border-neutral-800">
-            <p className="uppercase font-bold">Legendary</p>
-            <Image src="/img/golden-pokeball.png" alt="legendary pokemon" width={22} height={22}></Image>
-          </span>
-        )}
+        {isLegendary && <LegendaryBadge />}
       </span>
 
       <Stats
@@ -111,11 +107,14 @@ export const PokemonDetails = ({ pokemonId }: { pokemonId: number }) => {
       />
 
       <span className="flex flex-row mx-auto">
-        <img src={sprites?.front_default} alt={info?.name} className="mx-auto" />
-        {sprites?.front_shiny && <img src={sprites?.front_shiny} alt={info?.name} className="mx-auto" />}
-        {sprites?.back_default && <img src={sprites?.back_default} alt={info?.name} className="mx-auto" />}
-        {sprites?.back_shiny && <img src={sprites?.back_shiny} alt={info?.name} className="mx-auto" />}
+        <Sprites sprites={sprites?.front_default} alt={info?.name + 'front default'} />
+        {sprites?.front_shiny && <Sprites sprites={sprites?.front_shiny} alt={info?.name + 'front shiny'} />}
+        {sprites?.back_default && <Sprites sprites={sprites?.back_default} alt={info?.name + 'back default'} />}
+        {sprites?.back_shiny && <Sprites sprites={sprites?.back_shiny} alt={info?.name + 'back shiny'} />}
       </span>
+
+      <Navigation pokemonId={pokemonId} />
+
       {evolutionChain && <EvolutionChain evolutionChain={evolutionChain}></EvolutionChain>}
 
       {/* @TODO: ajouter différents onglets avec les stats, les évolutions, d'autres informations... */}
