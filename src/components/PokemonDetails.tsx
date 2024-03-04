@@ -2,7 +2,7 @@
 import { graphql, useLazyLoadQuery } from 'react-relay';
 import { PokemonDetailsQuery } from '../../__generated__/PokemonDetailsQuery.graphql';
 import Link from 'next/link';
-import PokemonType from './PokemonType';
+import PokemonType from './atoms/PokemonType';
 import EvolutionChain from './EvolutionChain';
 import Image from 'next/image';
 import Stats from './Stats';
