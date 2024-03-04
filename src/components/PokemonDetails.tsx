@@ -66,7 +66,7 @@ export const PokemonDetails = ({ pokemonId }: { pokemonId: number }) => {
   const isLegendary = info?.pokemon_v2_pokemonspecy?.is_legendary;
 
   return (
-    <div key={pokemonId} className="flex flex-col gap-8 items-start justify-center max-w-[600px] mx-auto my-8">
+    <div key={pokemonId} className="flex flex-col gap-12 items-start justify-center max-w-[600px] mx-auto my-8">
       <div className="flex flex-col gap-2 w-full">
         <div className="flex flex-row items-center justify-center gap-8">
           <Link
@@ -112,6 +112,7 @@ export const PokemonDetails = ({ pokemonId }: { pokemonId: number }) => {
         {sprites?.back_default && <Sprites sprites={sprites?.back_default} alt={info?.name + 'back default'} />}
         {sprites?.back_shiny && <Sprites sprites={sprites?.back_shiny} alt={info?.name + 'back shiny'} />}
       </span>
+
       {evolutionChain && <EvolutionChain evolutionChain={evolutionChain}></EvolutionChain>}
 
       {/* @TODO: ajouter différents onglets avec les stats, les évolutions, d'autres informations... */}
