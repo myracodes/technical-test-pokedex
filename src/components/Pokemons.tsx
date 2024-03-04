@@ -25,7 +25,6 @@ const GRAPHQL = graphql`
   }
 `;
 
-// TODO : Add a bit of styling
 export const Pokemons = () => {
   const data = useLazyLoadQuery<PokemonsQuery>(GRAPHQL, {});
 
