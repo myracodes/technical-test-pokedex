@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
+import Sprites from './atoms/Sprites';
 
 // @TODO: typage
 export const EvolutionChain = ({ evolutionChain }: { evolutionChain: any }): JSX.Element | null => {
@@ -15,11 +16,8 @@ export const EvolutionChain = ({ evolutionChain }: { evolutionChain: any }): JSX
               href={`/pokemon?id=${evol.evolution_id}`}
               className="flex flex-col gap-2 w-fit"
             >
-              <img
-                src={evol.pokemon_v2_pokemonsprites[0].sprites.front_default}
-                alt={evol.name}
-                className="scale-125"
-              />
+              <Sprites sprites={evol.pokemon_v2_pokemonsprites[0].sprites.front_default} alt={evol.name} />
+
               <span className="flex flex-row items-center justify-between tracking-wide capitalize ">
                 <p className="font-bold">{evol.name}</p>
                 <p className="font-pokemon">#{evol.evolution_id}</p>
