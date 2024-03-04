@@ -70,7 +70,7 @@ export const PokemonDetails = ({ pokemonId }: { pokemonId: number }) => {
         <div className="flex flex-row items-center justify-center gap-8">
           <Link
             href={'/'}
-            className="text-lg uppercase font-bold border-2 px-4 py-1 mt-3 rounded-full border-dark-500 dark:border-neutral-200 hover:bg-neutral-200 dark:hover:bg-dark-300"
+            className="text-lg uppercase font-bold border-2 px-4 py-1 mt-3 rounded-md border-dark-500 dark:border-neutral-200 hover:bg-neutral-200 dark:hover:bg-dark-300"
           >
             ← Back
           </Link>
